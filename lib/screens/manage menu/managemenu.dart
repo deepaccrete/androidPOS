@@ -35,7 +35,7 @@ class _ManagemenuState extends State<Managemenu>
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
-    final width = MediaQuery.of(context).size.width * 1;
+    final width = MediaQuery.of(context).size.width * 1;  
     return Scaffold(
       appBar: AppBar(
         // automaticallyImplyLeading: false,
@@ -142,9 +142,9 @@ class _ManagemenuState extends State<Managemenu>
         AllTab(),
         ItemsTab(),
         CategoryTab(),
-        VariantTab(),
-        ChoiceTab(),
-        ExtraTab(),
+          VariantTab(),
+          ChoiceTab(),
+          ExtraTab(),
       ]),
     );
   }
