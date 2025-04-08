@@ -3,6 +3,8 @@ import 'package:foodchow/componets/listmenu.dart';
 import 'package:foodchow/constant/color.dart';
 import 'package:foodchow/screens/Inverntary/manage_Inventory.dart';
 import 'package:foodchow/screens/ManageStaff/manageStaff.dart';
+import 'package:foodchow/screens/Settings/settingsScreen.dart';
+import 'package:foodchow/screens/TaxSetting/taxSettings.dart';
 import 'package:foodchow/screens/auth/admin_login.dart';
 import 'package:foodchow/screens/manage%20menu/managemenu.dart';
 import 'package:foodchow/screens/splashScreen.dart';
@@ -154,6 +156,9 @@ class AdminWelcome extends StatelessWidget {
                   ),
                   Expanded(
                       child: Listmenu(
+                        onTap: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context) =>  taxSetting(),));
+                        },
                           title: 'Tax Setting', icons: (Icons.settings)))
                 ],
               ),
@@ -164,7 +169,10 @@ class AdminWelcome extends StatelessWidget {
                 children: [
                   Expanded(
                       child:
-                          Listmenu(title: 'Setting', icons: (Icons.settings))),
+                          Listmenu(onTap: () {
+                            Navigator.push(context,MaterialPageRoute(builder: (context)=> Settingsscreen()));
+                          },
+                            title: 'Setting', icons: (Icons.settings))),
                   SizedBox(
                     width: 10,
                   ),

@@ -1,8 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:foodchow/componets/Button.dart';
 import 'package:foodchow/componets/drawermanage.dart';
 import 'package:foodchow/constant/color.dart';
-import 'package:foodchow/screens/ManageStaff/multipleTextFelids.dart';
+import 'package:foodchow/componets/mulTextFelids&userinfoPopUp.dart';
 import 'package:foodchow/screens/auth/admin_login.dart';
 import 'package:foodchow/screens/manage%20menu/managemenu.dart';
 import 'package:foodchow/screens/manage%20menu/tab/Categoriestab.dart';
@@ -30,24 +31,24 @@ class manageStaff extends StatefulWidget {
 class _manageStaffState extends State<manageStaff> {
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          shadowColor: Colors.black,
-          actions: [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Icon(Icons.person),
-                  Text(
-                    "Admin",
-                    style: GoogleFonts.poppins(),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+      appBar: AppBar(
+        elevation: 1,
+        shadowColor: Colors.black,
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Icon(Icons.person),
+                Text(
+                  "Admin",
+                  style: GoogleFonts.poppins(),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
       body: Column(
         children: [
           SizedBox(
@@ -70,124 +71,126 @@ class _manageStaffState extends State<manageStaff> {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          icon: Icon(
-                            Icons.person_add,
-                            size: 25.0,
-                            color: primarycolor,
-                          ),
-                          title: Text("Add Staff"),
-                          actions: [
-                            Column(
-                              children: [
-                                Padding(padding: EdgeInsets.all(25)),
-                                Center(
-                                  child: textFelids(
-                                    hintText: "Enter User Name",
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 5, right: 5),
-                                        child: textFelids(
-                                          hintText: "Enter First Name",
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 5, left: 5),
-                                        child: textFelids(
-                                          hintText: "Enter Last Name",
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Center(
-                                    child: Column(
-                                  children: [
-                                    textFelids(hintText: "Enter Mobile No"),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    textFelids(hintText: "Enter Your Mail "),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    textFelids(hintText: "Enter pin code "),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                  ],
-                                )),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(
-                                      height: 60,
-                                      width: 150,
-                                      child: TextButton(
-                                          style: TextButton.styleFrom(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 20, vertical: 14),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(4),
-                                              )),
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: Text(
-                                            'Cancel',
-                                            style: TextStyle(
-                                                color: primarycolor,
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                    ),
-                                    SizedBox(
-                                      height: 60,
-                                      width: 150,
-                                      child: TextButton(
-                                          style: TextButton.styleFrom(
-                                              backgroundColor: primarycolor,
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 20, vertical: 14),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4))),
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: Text(
-                                            "Add",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                    )
-                                  ],
-                                )
-                              ],
+                        return Expanded(
+                          child: AlertDialog(
+                            icon: Icon(
+                              Icons.person_add,
+                              size: 3.0,
+                              color: primarycolor,
                             ),
-                          ],
+                            title: Text("Add Staff"),
+                            actions: [
+                              Column(
+                                children: [
+                                  Padding(padding: EdgeInsets.all(25)),
+                                  Center(
+                                    child: textFelids(
+                                      hintText: "Enter User Name",
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 5, right: 5),
+                                          child: textFelids(
+                                            hintText: "Enter First Name",
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 5, left: 5),
+                                          child: textFelids(
+                                            hintText: "Enter Last Name",
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Center(
+                                      child: Column(
+                                    children: [
+                                      textFelids(hintText: "Enter Mobile No"),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      textFelids(hintText: "Enter Your Mail "),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      textFelids(hintText: "Enter pin code "),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                    ],
+                                  )),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 150,
+                                        child: TextButton(
+                                            style: TextButton.styleFrom(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 20, vertical: 14),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(4),
+                                                )),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text(
+                                              'Cancel',
+                                              style: TextStyle(
+                                                  color: primarycolor,
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                      ),
+                                      SizedBox(
+                                        height: 60,
+                                        width: 100,
+                                        child: TextButton(
+                                            style: TextButton.styleFrom(
+                                                backgroundColor: primarycolor,
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 20, vertical: 14),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            4))),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text(
+                                              "Add",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            )),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         );
                       });
                 },
@@ -220,23 +223,29 @@ class _manageStaffState extends State<manageStaff> {
                 children: [
                   Text('Admin User1'),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("ID 1234 "),
-                      TextButton(
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CustomUserInfoButton(
-                                userName: "username",
-                                mobileNumber: "12345679",
-                                email: "abcd@gmail.com")
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                CustomUserInfoButton(
+                                    userName: "username",
+                                    mobileNumber: "12345679",
+                                    email: "abcd@gmail.com")
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () {
+
+                      CommonButton(
+                        width: 70.0,
+                        height: 30.0,
+                        onTap: () {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
@@ -369,18 +378,154 @@ class _manageStaffState extends State<manageStaff> {
                                 );
                               });
                         },
-                        label: Icon(
-                          Icons.edit,
-                          color: primarycolor,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 14),
-                          shape: BeveledRectangleBorder(
-                              borderRadius: BorderRadius.circular(4),
-                              side: BorderSide(color: primarycolor, width: 1)),
-                        ),
-                      ),
+                        child: Icon(Icons.add),
+                      )
+
+                      // ElevatedButton.icon(
+                      // onPressed: () {
+                      //   showDialog(
+                      //       context: context,
+                      //       builder: (BuildContext context) {
+                      //         return AlertDialog(
+                      //           title: Icon(
+                      //             Icons.edit,
+                      //             size: 25.0,
+                      //             color: primarycolor,
+                      //           ),
+                      //           actions: [
+                      //             Column(
+                      //               children: [
+                      //                 Padding(padding: EdgeInsets.all(25)),
+                      //                 Center(
+                      //                     child: ShowInputData(
+                      //                   normalText: Text("satyam"),
+                      //                 )),
+                      //                 SizedBox(
+                      //                   height: 20,
+                      //                 ),
+                      //                 Row(
+                      //                   mainAxisAlignment:
+                      //                       MainAxisAlignment.spaceEvenly,
+                      //                   children: [
+                      //                     Expanded(
+                      //                       child: Padding(
+                      //                           padding:
+                      //                               const EdgeInsets.only(
+                      //                                   left: 5, right: 5),
+                      //                           child: ShowInputData(
+                      //                             normalText: Text("doe"),
+                      //                           )),
+                      //                     ),
+                      //                     Expanded(
+                      //                       child: Padding(
+                      //                           padding:
+                      //                               const EdgeInsets.only(
+                      //                                   right: 5, left: 5),
+                      //                           child: ShowInputData(
+                      //                             normalText: Text("show"),
+                      //                           )),
+                      //                     ),
+                      //                   ],
+                      //                 ),
+                      //                 SizedBox(
+                      //                   height: 20,
+                      //                 ),
+                      //                 Center(
+                      //                     child: Column(
+                      //                   children: [
+                      //                     ShowInputData(
+                      //                         normalText: Text("123456789")),
+                      //                     SizedBox(
+                      //                       height: 20,
+                      //                     ),
+                      //                     ShowInputData(
+                      //                       normalText: Text("abc@gmail.com"),
+                      //                     ),
+                      //                     SizedBox(
+                      //                       height: 20,
+                      //                     ),
+                      //                   ],
+                      //                 )),
+                      //                 SizedBox(
+                      //                   height: 20,
+                      //                 ),
+                      //                 Row(
+                      //                   mainAxisAlignment:
+                      //                       MainAxisAlignment.spaceBetween,
+                      //                   children: [
+                      //                     SizedBox(
+                      //                       height: 60,
+                      //                       width: 150,
+                      //                       child: TextButton(
+                      //                           style: TextButton.styleFrom(
+                      //                               padding:
+                      //                                   EdgeInsets.symmetric(
+                      //                                       horizontal: 20,
+                      //                                       vertical: 14),
+                      //                               shape:
+                      //                                   RoundedRectangleBorder(
+                      //                                 borderRadius:
+                      //                                     BorderRadius
+                      //                                         .circular(4),
+                      //                               )),
+                      //                           onPressed: () {
+                      //                             Navigator.of(context).pop();
+                      //                           },
+                      //                           child: Text(
+                      //                             'Cancel',
+                      //                             style: TextStyle(
+                      //                                 color: primarycolor,
+                      //                                 fontWeight:
+                      //                                     FontWeight.bold),
+                      //                           )),
+                      //                     ),
+                      //                     SizedBox(
+                      //                       height: 60,
+                      //                       width: 150,
+                      //                       child: TextButton(
+                      //                           style: TextButton.styleFrom(
+                      //                               backgroundColor:
+                      //                                   primarycolor,
+                      //                               padding:
+                      //                                   EdgeInsets.symmetric(
+                      //                                       horizontal: 20,
+                      //                                       vertical: 14),
+                      //                               shape:
+                      //                                   RoundedRectangleBorder(
+                      //                                       borderRadius:
+                      //                                           BorderRadius
+                      //                                               .circular(
+                      //                                                   4))),
+                      //                           onPressed: () {
+                      //                             Navigator.of(context).pop();
+                      //                           },
+                      //                           child: Text(
+                      //                             "Add",
+                      //                             style: TextStyle(
+                      //                                 color: Colors.white,
+                      //                                 fontWeight:
+                      //                                     FontWeight.bold),
+                      //                           )),
+                      //                     )
+                      //                   ],
+                      //                 )
+                      //               ],
+                      //             ),
+                      //           ],
+                      //         );
+                      //       });
+                      // },
+                      // label: Icon(
+                      //   Icons.edit,
+                      //   color: primarycolor,
+                      // ),
+                      // style: ElevatedButton.styleFrom(
+                      //   padding: EdgeInsets.symmetric(
+                      //       horizontal: 20, vertical: 14),
+                      //   shape: BeveledRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(4),
+                      //       side: BorderSide(color: primarycolor, width: 1)),
+                      // ),
                     ],
                   ),
                   Text(

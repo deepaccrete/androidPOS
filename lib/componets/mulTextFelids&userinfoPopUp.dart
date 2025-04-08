@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:foodchow/componets/drawermanage.dart';
 import 'package:foodchow/constant/color.dart';
-import 'package:foodchow/screens/ManageStaff/multipleTextFelids.dart';
+import 'package:foodchow/componets/mulTextFelids&userinfoPopUp.dart';
 import 'package:foodchow/screens/auth/admin_login.dart';
 import 'package:foodchow/screens/manage%20menu/managemenu.dart';
 import 'package:foodchow/screens/manage%20menu/tab/Categoriestab.dart';
@@ -54,6 +54,7 @@ class textFelids extends StatelessWidget {
 
   }
 }
+
 
 class ShowInputData extends StatelessWidget {
   final Color? textStyleColors;

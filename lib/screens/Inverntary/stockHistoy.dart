@@ -32,40 +32,59 @@ class StockHistory extends StatelessWidget {
         ],
         
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-
+      body: Column(
         children: [
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Stock History",),
-              Padding(padding: EdgeInsets.all(10),child:
-               ElevatedButton.icon(
-                onPressed: (){
-                Navigator.pop(context);
-              }, 
-              label: Text(
-                            "Stock History",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)),
-                            backgroundColor: primarycolor,
-                          ),
-              ),
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                 flex: 2,
+                  child: Text(
+                    "Stock History",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    label: Text(  
+                      "Stock History",
+                      style: TextStyle(color: Colors.white,fontSize: 10),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      backgroundColor: primarycolor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Divider(
             thickness: 1,
             color: Colors.grey,
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  left: 20,
+                ),
+                child: Text(
+                  "Stocks ",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              )
+            ],
+          ),
         ],
-      ),
-      drawer: DrawerManage(),
+      ),drawer: DrawerManage(),
     );
   }
 }

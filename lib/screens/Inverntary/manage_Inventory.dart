@@ -37,29 +37,35 @@ class ManageInventory extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Manage Inventory",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Manage Inventorys",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(left: 150),
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => StockHistory()));
-                      },
-                      label: Text(  
-                        "Stock History",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        backgroundColor: primarycolor,
-                      ),
-                    )),
+                Expanded(
+                 
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StockHistory()
+                              )
+                              );
+                    },
+                    label: Text(  
+                      "Manage Inventory",
+                      style: TextStyle(color: Colors.white,fontSize: 8),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      backgroundColor: primarycolor,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -69,7 +75,9 @@ class ManageInventory extends StatelessWidget {
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              
               Padding(
                 padding: EdgeInsets.only(
                   left: 20,
