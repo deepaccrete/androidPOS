@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodchow/componets/listmenu.dart';
 import 'package:foodchow/constant/color.dart';
+import 'package:foodchow/screens/Inverntary/manage_Inventory.dart';
+import 'package:foodchow/screens/ManageStaff/manageStaff.dart';
+import 'package:foodchow/screens/Settings/settingsScreen.dart';
+import 'package:foodchow/screens/TaxSetting/taxSettings.dart';
 import 'package:foodchow/screens/Expense/Expense.dart';
 import 'package:foodchow/screens/auth/admin_login.dart';
 import 'package:foodchow/screens/manage%20menu/managemenu.dart';
@@ -22,39 +26,37 @@ class AdminWelcome extends StatelessWidget {
           // toolbarHeight: 50,
           // backgroundColor: Colors.red,
           actions: [
-        Container(
-          width: width,
-          // color: Colors.green,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                  alignment: Alignment.centerRight,
-                  height: height * 0.5,
-                  width: width * 0.3,
-                  // color: Colors.purple,
-                  child: Image.asset(
-                    'assets/images/FOODCHOW3_processed.jpg',
-                    fit: BoxFit.fill,
-                  )),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:
-                Row(
-                  children: [
-                    Icon(Icons.person),
-                    Text(
-                      'Admin',
-                      style: GoogleFonts.poppins(),
-                    )
-                  ],
-                ),
+            Container(
+              width: width,
+              // color: Colors.green,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      alignment: Alignment.centerRight,
+                      height: height * 0.5,
+                      width: width * 0.3,
+                      // color: Colors.purple,
+                      child: Image.asset(
+                        'assets/images/FOODCHOW3_processed.jpg',
+                        fit: BoxFit.fill,
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.person),
+                        Text(
+                          'Admin',
+                          style: GoogleFonts.poppins(),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        )
-      ]),
+            )
+          ]),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
@@ -89,6 +91,7 @@ class AdminWelcome extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Listmenu(
+               },
 
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> Startorder() ));
@@ -100,9 +103,12 @@ class AdminWelcome extends StatelessWidget {
                   ),
                   Expanded(
                       child: Listmenu(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Managemenu()));
-                        },
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Managemenu()));
+                          },
                           title: 'Manage Menu',
                           icons: (Icons.manage_accounts)))
                 ],
@@ -114,6 +120,12 @@ class AdminWelcome extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Listmenu(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => manageStaff()));
+                          },
                           title: 'Manage Staff',
                           icons: (Icons.manage_accounts_sharp))),
                   SizedBox(
@@ -121,7 +133,14 @@ class AdminWelcome extends StatelessWidget {
                   ),
                   Expanded(
                       child: Listmenu(
-                          title: 'Invatory', icons: (Icons.inventory)))
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ManageInventory()));
+                          },
+                          title: 'Invatory',
+                          icons: (Icons.inventory)))
                 ],
               ),
               SizedBox(
@@ -141,6 +160,9 @@ class AdminWelcome extends StatelessWidget {
                   ),
                   Expanded(
                       child: Listmenu(
+                        onTap: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context) =>  taxSetting(),));
+                        },
                           title: 'Tax Setting', icons: (Icons.settings)))
                 ],
               ),
@@ -150,8 +172,11 @@ class AdminWelcome extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                      child: Listmenu(
-                          title: 'Setting', icons: (Icons.settings))),
+                      child:
+                          Listmenu(onTap: () {
+                            Navigator.push(context,MaterialPageRoute(builder: (context)=> Settingsscreen()));
+                          },
+                            title: 'Setting', icons: (Icons.settings))),
                   SizedBox(
                     width: 10,
                   ),
@@ -170,18 +195,19 @@ class AdminWelcome extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                      child: Listmenu(
-                          title: 'Language', icons: (Icons.language))),
+                      child:
+                          Listmenu(title: 'Language', icons: (Icons.language))),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
                       child: Listmenu(
-                        onTap: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> AdminLogin()));
-
-
-                        },
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminLogin()));
+                    },
                     title: 'Logout',
                     icons: (Icons.logout),
                     color: Colors.red,

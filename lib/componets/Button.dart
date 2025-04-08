@@ -11,12 +11,14 @@ class CommonButton extends StatelessWidget {
   final double? borderwidth;
   final double? height;
   final double? bordercircular;
+  final IconData? iconData;
 
   CommonButton(
       {super.key,
       required this.onTap,
       required this.child,
       this.bgcolor,
+      this.iconData,
       this.width = 800,
       this.height = 70,
       this.bordercolor, this.bordercircular, this.borderwidth});

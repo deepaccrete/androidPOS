@@ -5,10 +5,12 @@ import 'package:foodchow/screens/Reports/reports.dart';
 import 'package:foodchow/screens/welcomeAdmin.dart';
 
 class DrawerManage extends StatelessWidget {
+
   final bool issync;
   final  bool isDelete;
   final  bool islogout;
   const DrawerManage({super.key, required this.issync,required this.isDelete, required this.islogout});
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class DrawerManage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ReportsScreen()));
+
                 },
                 title: 'Reports',
                 icons: Icons.auto_graph,
@@ -55,6 +58,42 @@ class DrawerManage extends StatelessWidget {
               ),
               SizedBox(
                 height: 10,
+              ),
+
+              sync == true? 
+                 Column(
+                    children: [
+                      Listmenu(
+                        title: 'Sync',
+                        icons: Icons.sync,
+                        listcolor: Colors.grey.shade300,
+                        heightCon: height * 0.06,
+                        borderwidth: 0,
+                        colorb: Colors.transparent,
+                        borderradius: 2,
+                      ),
+                      SizedBox(height: 10),
+                    ],
+                  )
+                : SizedBox(), 
+
+              Listmenu(
+                title: 'Need Help?',
+                icons: Icons.person,
+                listcolor: Colors.grey.shade300,
+                heightCon: height * 0.06,
+                borderwidth: 0,
+                colorb: Colors.transparent,
+                borderradius: 2,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Listmenu(
+                title: 'Delete Account',
+                colortext: Colors.red,
+                icons: Icons.delete,
+                color: Colors.red,
               ),
 
 
@@ -78,6 +117,14 @@ class DrawerManage extends StatelessWidget {
                 borderwidth: 0,
                 colorb: Colors.transparent,
                 borderradius: 2,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Listmenu(
+                title: 'Logout',
+                icons: Icons.logout,
+                colortext: Colors.red,
               ),
               SizedBox(
                 height: 10,
@@ -107,7 +154,7 @@ class DrawerManage extends StatelessWidget {
                 borderradius: 2,
               ):SizedBox()
             ],
-          ),
+          )
         ),
       ),
     );
