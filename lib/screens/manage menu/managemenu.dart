@@ -137,7 +137,7 @@ class _ManagemenuState extends State<Managemenu>
         //   ),
         // ),
       ),
-      drawer: DrawerManage(),
+      drawer: DrawerManage(islogout:true,isDelete:true, issync: false,),
       body: TabBarView(controller: tabController, children: [
         AllTab(),
         ItemsTab(),

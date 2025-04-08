@@ -33,7 +33,7 @@ class CommonButton extends StatelessWidget {
           color: bgcolor ?? Primarysecond,
           borderRadius: BorderRadius.circular(bordercircular??15),
         ),
-        child: child,
+        child: Center(child: child),
       ),
     );
   }
