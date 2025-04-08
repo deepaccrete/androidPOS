@@ -13,8 +13,9 @@ class Listmenu extends StatelessWidget {
   final Color? listcolor;
   final double? heightCon;
   final double? borderradius;
+  final double? iconssize;
   final double? borderwidth;
-  const Listmenu({super.key, required this.title, required this.icons, this.color, this.onTap, this.listcolor, this.heightCon, this.borderwidth, this.colorb, this.borderradius, this.colortext,});
+  const Listmenu({super.key, required this.title, required this.icons, this.color, this.onTap, this.listcolor, this.heightCon, this.borderwidth, this.colorb, this.borderradius, this.colortext, this.iconssize,});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class Listmenu extends StatelessWidget {
         style: ListTileStyle.drawer,
 
         onTap:onTap,
-        leading:Icon(icons,color:color?? primarycolor,),
+        leading:Icon(icons,color:color?? primarycolor,size: iconssize?? 20,),
         title: Text(title,style: GoogleFonts.poppins(fontSize: 14,color: colortext?? Colors.black),),
       ),
     );

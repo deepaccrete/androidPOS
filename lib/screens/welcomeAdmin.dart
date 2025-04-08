@@ -5,10 +5,12 @@ import 'package:foodchow/screens/Inverntary/manage_Inventory.dart';
 import 'package:foodchow/screens/ManageStaff/manageStaff.dart';
 import 'package:foodchow/screens/Settings/settingsScreen.dart';
 import 'package:foodchow/screens/TaxSetting/taxSettings.dart';
+import 'package:foodchow/screens/Expense/Expense.dart';
 import 'package:foodchow/screens/auth/admin_login.dart';
 import 'package:foodchow/screens/manage%20menu/managemenu.dart';
+import 'package:foodchow/screens/Reports/reports.dart';
 import 'package:foodchow/screens/splashScreen.dart';
-import 'package:foodchow/screens/startorder.dart';
+import 'package:foodchow/screens/start%20order/startorder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -89,12 +91,11 @@ class AdminWelcome extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Listmenu(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Startorder()));
-                          },
+               },
+
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Startorder() ));
+                        },
                           title: 'Start',
                           icons: (Icons.shopping_cart_sharp))),
                   SizedBox(
@@ -149,6 +150,9 @@ class AdminWelcome extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Listmenu(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ReportsScreen()));
+                        },
                           title: 'Reports',
                           icons: (Icons.auto_graph_outlined))),
                   SizedBox(
@@ -177,7 +181,12 @@ class AdminWelcome extends StatelessWidget {
                     width: 10,
                   ),
                   Expanded(
-                      child: Listmenu(title: 'Expense', icons: (Icons.wallet)))
+                      child:
+                          Listmenu(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> ExpenseScreen()));
+                              },
+                              title: 'Expense', icons: (Icons.wallet)))
                 ],
               ),
               SizedBox(

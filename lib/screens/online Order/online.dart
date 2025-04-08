@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodchow/constant/color.dart';
 import 'package:foodchow/screens/online%20Order/Completed.dart';
 import 'package:foodchow/screens/online%20Order/inProgress.dart';
 import 'package:foodchow/screens/online%20Order/missed.dart';
@@ -46,16 +47,46 @@ with SingleTickerProviderStateMixin{
           )
         ],
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(48),
-          child: TabBar(
-            controller: tabController,
-              isScrollable: false,
-              tabs: const[
-                Tab(text: 'Order(0)',),
-                Tab(text: 'In Progress(0)',),
-                Tab(text: 'Completed(0)',),
-                Tab(text: 'Missed(0)',),
-              ])
+          preferredSize: Size.fromHeight(50),
+          child: Container(
+          width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+            decoration:BoxDecoration(
+              color: Colors.grey.shade200, // Background color
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: TabBar(
+                controller: tabController,
+                isScrollable: true,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.grey,
+                dividerColor: Colors.transparent,
+                indicatorColor: Primarysecond,
+                indicator: BoxDecoration(
+                  color: primarycolor,
+                    borderRadius:BorderRadius.circular(8),
+                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                tabs: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Tab(text: 'Order(0)',),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Tab(text: 'In Progress(0)',),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Tab(text: 'Completed(0)',),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+
+                    child: Tab(text: 'Missed(0)',),
+                  ),
+                ]),
+          )
         )
       ),
       body: TabBarView(

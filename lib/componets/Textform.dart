@@ -1,6 +1,7 @@
 // import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:foodchow/constant/color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CommonTextForm extends StatelessWidget {
@@ -11,6 +12,9 @@ class CommonTextForm extends StatelessWidget {
   final Icon? icon;
   final Widget? gesture;
   final String? hintText;
+  final Color? BorderColor;
+  final Color? HintColor;
+  final double? borderc;
   // final String? labelText;
   final bool obsecureText;
   const CommonTextForm(
@@ -18,7 +22,7 @@ class CommonTextForm extends StatelessWidget {
       this.controller,
       this.hintText,
       required this.obsecureText,
-      this.validator, this.icon,  this.gesture, this.focusNode, this.onfieldsumbitted,  });
+      this.validator, this.icon,  this.gesture, this.focusNode, this.onfieldsumbitted, this.BorderColor, this.HintColor, this.borderc,  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +37,28 @@ class CommonTextForm extends StatelessWidget {
         suffixIcon: gesture,
         // labelText: labelText,
         hintText: hintText,
+        prefixIcon: icon,
         hintStyle: GoogleFonts.poppins(
-            fontWeight: FontWeight.w600, color: Colors.black),
+            fontWeight: FontWeight.w600, color: HintColor ?? Colors.black),
         // label: labelText,
         focusedBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: BorderColor ?? primarycolor
+                ),
+                borderRadius: BorderRadius.circular(borderc??15)),
         enabledBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: BorderColor ?? Colors.black
+                ),
+                borderRadius: BorderRadius.circular(borderc??15)),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(borderc??15),
         ),
         errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15)),
+            borderRadius: BorderRadius.circular(borderc??15)),
+
       ),
     );
   }
